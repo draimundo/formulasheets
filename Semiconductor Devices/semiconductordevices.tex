@@ -47,7 +47,7 @@
   The upstream repository can be found at \href{https://github.com/noah95/formulasheets}{https://github.com/noah95/formulasheets}
 	\vfill\null
 	\pagebreak
-  \maketitle 
+%  \maketitle 
   \thispagestyle{fancy}
 
   % ---------------------------------------------------------------------------
@@ -55,8 +55,14 @@
   % ---------------------------------------------------------------------------
     \subsection{Electric resistivity/conductivity}
     \cgraphic{1}{img/conductor.png}
-    Conductivity $\sigma$ is a material property describing how easily certain material can conduct electrical current. Resistivity $\rho = 1/\sigma$ describes how much a material opposes the current flow. The resistance of a square/round piece of metal is:
-    \[R=\rho\frac{l}{A}=\rho\frac{l}{r^2\pi}\]
+    \begin{center}
+       \begin{align*}
+       & \text{Conductivity}: \sigma \left[S/m\right] \\
+       & \text{Resistivity}: \rho=\sigma^{-1} \left[\Omega\cdot m\right]\\
+       & \text{Resistance}: R=\rho\frac{l}{A}=\rho\frac{l}{r^2\pi} \left[\Omega\right]
+        \end{align*} 
+    \end{center}
+    
     \cgraphic{1}{img/resistivity.png}
 
     \subsection{Electron motion}
