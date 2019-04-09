@@ -9,8 +9,9 @@
 % ---------------------------------------------------------------------------
 
 \documentclass[a4paper, fontsize=8pt, landscape, DIV=1]{scrartcl}
-\usepackage{lastpage}
 \usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{bm}
 % Include general settings and customized commands
 \input{settings/general}
 \input{settings/commands}
@@ -27,14 +28,14 @@
 \IfFileExists{../build/revision.tex}{
   \input{../build/revision.tex}
   \rhead{Compiled: \compiledate \hspace{1em} on \hostname \hspace{1em} from commit: \revision \hspace{1em} Noah Huetter}
-}{\rhead{Noah Huetter}}
+}{\rhead{Noah Huetter, Daniel Raimundo}}
 
 \lhead{ETH Semiconductor Devices 2019}
 \chead{\thepage}
 \cfoot{}
 \headheight 17pt \headsep 10pt
 \title{ETH Semiconductor Devices 2019}
-\author{Noah Huetter}
+\author{Noah Huetter, Daniel Raimundo}
 
 \date{\today}
 \begin{document}
@@ -53,73 +54,73 @@
   % ---------------------------------------------------------------------------
   \section{Introduction}
   % ---------------------------------------------------------------------------
+  \setcounter{page}{1}
     \subsection{Electric resistivity/conductivity}
     \cgraphic{1}{img/conductor.png}
-    \begin{center}
-       \begin{align*}
-       & \text{Conductivity}: \sigma \left[S/m\right] \\
-       & \text{Resistivity}: \rho=\sigma^{-1} \left[\Omega\cdot m\right]\\
-       & \text{Resistance}: R=\rho\frac{l}{A}=\rho\frac{l}{r^2\pi} \left[\Omega\right]
-        \end{align*} 
-    \end{center}
-    
+    \begin{itemize}[noitemsep,nolistsep]
+       \item$\text{Conductivity}: \sigma \left[S/m\right]$;
+       \item$\text{Resistivity}: \rho=\sigma^{-1} \left[\Omega\cdot m\right]$;
+       \item$\text{Resistance}: R=\rho\frac{l}{A}=\rho\frac{l}{r^2\pi} \left[\Omega\right]$.
+	\end{itemize}
     \cgraphic{1}{img/resistivity.png}
 
     \subsection{Electron motion}
     \cgraphic{0.5}{img/electronmotion.png}
-    \begin{itemize}
-      \item Electric Force Definition
-        \[\vec{F}_e = Q\vec{E} \quad \vec{E}:\frac{\text{Newtons}}{C}=\frac{V}{m}\]
-      \item Magneti Force Definition:
-        \[\vec{F}_m = Q\vec{v}\times\vec{B} \quad \text{not used in course}\]
-      \item Definition of electric field:
-        \[F_{12}=F_{21}=k\frac{Q_1Q_2}{r^2} \quad E_{21}=\frac{F_21}{Q_2}=k\frac{Q_1}{r^2}\]
-      \item Definition: Current
-        \[I = \abl{t}Q\]
+    \begin{itemize}[noitemsep,nolistsep]
+      \item Electric Force: $\vec{F}_e = Q\vec{E} \quad [\vec{E}]=\frac{\text{N}}{C}=\frac{V}{m}$;
+      \item Magnetic Force:
+        $\vec{F}_m = Q\vec{v}\times\vec{B}$;
+      \item Electric field: $F_{12}=F_{21}=\frac{1}{4\pi\epsilon_0}\frac{Q_1Q_2}{r^2}$;
+      \item Current: $I = \abl{t}Q \quad [Q]=\frac{C}{s}={s\cdot A}$.
     \end{itemize}
 
     \subsection{Current flow}
     \cgraphic{0.5}{img/current.png}
     
     \subsection{Moore's Law}
-    Gordon Moore predicted that the number of transistors on an integrated circuit doubles about every two years. This is described using exponential growth:
-    \[p(t) = p_0 \cdot b^{t/\tau}\]
-    Where
-    \begin{align*}
-      p(t) &= \text{population at given time} \\
-      p_0 &= \text{initial population} \\
-      b &= \text{growth rate per time constant} \\
-      \tau &= \text{time constant}
-    \end{align*}
+    ML: Number of transistors on an IC doubles every two years$\rightarrow p(t) = p_0 \cdot b^{t/\tau}$
+	\begin{itemize}[noitemsep,nolistsep]
+		\item$p(t) = \text{population at given time}$;
+		\item$p_0 = \text{initial population}$;
+		\item$b = \text{growth rate per time constant}$;
+		\item$\tau = \text{time constant}$.
+	\end{itemize}
+      
 
   % ---------------------------------------------------------------------------
   \section{Solid state physics}
   % ---------------------------------------------------------------------------
   \subsection{Crystal structures}
+  \begin{itemize}[noitemsep,nolistsep]
+  \item\textbf{CN (Coordination Number)}: Number of nearest neighbours any atom has in a given crystal lattice, which is periodic in 3D. $a$: lattice cst $[m]$;
+  \item\textbf{$\bm{N_{eff}}$ (Effective N of atoms in cell)}$=N_{complete}+N_{face}/2+N_{edge}/8[atoms]$;
+  \item\textbf{VD (Volume Density)}= $\frac{N_\text{atoms\_in\_cell}}{V_\text{unit\_cell}}\left[\frac{at}{m^3}\right]$;
+  \item\textbf{VPD (V Packing D)}= $\frac{V_\text{atoms\_in\_cell}}{V_\text{unit\_cell}}[1]$;
+  \item\textbf{SD (Surface Density)}= $\frac{N_\text{atoms\_on\_plane}}{S_\text{plane}}\left[\frac{at}{m^2}\right]$;
+  \item\textbf{SPD (S Packing D)}= $\frac{S_\text{atoms\_on\_plane}}{S_\text{plane}}[1]$;
+  \item\textbf{Types of 3D periodic stuctures:}\textbf{sc (Simple Cubic)}: Po; \textbf{bcc (Body Centered Cubic)}: Li, Na, K, Cr, Fe, Nb, Mo; \textbf{fcc (Face Centered Cubic)}: Al, Ar, Ni, Cu, Kr, Pd, Ag, Xe, Ta, W, Pt, Au; \textbf{dia (Diamond)}: Si.
+	\end{itemize}
   \cgraphic{0.5}{img/wholecrystal.png}
-  \textbf{Def (Coordination Number)}: Is the number of nearest neighbours any atom has in a given crystal lattice. By definition, a crystal lattice is periodic in 3D. $a$ is the lattice constant.
-
-  \cgraphic{1}{img/crystalstructures.png}
-  \begin{tabular}[h]{l l p{1.5cm}}
-    (a) & SC: Simple cubic & Po \\
-    (b) & BCC: Body-centered cubic & Li, Na, K, Cr, Fe, NB \\
-    (c) & FCC: Facae-centered cubic & Al, Ar, Ni, Cu, Kr, Pd \\
+  \begin{center}
+    \begin{tabular}[h]{c c c c c c}
+    Fig & Type & $N_{eff}$ & CN & $r_a$ & VPD\\\hline	
+	(a) & sc & 1 & 6 & $a/2$ & $\pi/6$\\
+	(b) & bcc & 2 & 8 & $\sqrt{3}a/4$ & $\sqrt{3}\pi/8$\\
+	(c) & fcc & 4 & 12 & $\sqrt{2}a/4$ & $\sqrt{2}\pi/6$\\
+	$\downarrow$ & dia & 8 & 4 & $\sqrt{3}a/8$ & $\sqrt{3}\pi/16$\\
   \end{tabular}
+	\end{center}
+  \cgraphic{1}{img/crystalstructures.png}
+
 
   \subsection{Silicon}
   \cgraphic{1}{img/siliconstructure.png}
-  \textbf{Diamond unit cell}: (a) the cubic unit cell, and (b) the inherent tetrahedral structure. The diamon crystal structure is epecially important in semiconductors. For Silicon, the nuclear diameter is $7.2\text{fm} = 2.7\cdot 10^{-6}\text{nm}$: Matter is impressively ``empty''.
-
-  \cgraphic{0.3}{img/tetrahedral.png}
-  \textbf{Tetrahedral}:
+  \textbf{Diamond unit cell}: (l) cubic unit cell; (r) inherent tetrahedral structure. For Si, the nuclear diameter is $7.2\text{fm} = 2.7\cdot 10^{-6}\text{nm}$: Matter is impressively ``empty''. \textbf{Tetrahedral bonding angle} $=109.471$ deg.
 
   \subsection{Crystal Planes and Directions}
   \cgraphic{0.8}{img/planes.png}
-  Things don't look the same in all directions. The crystal has different periodicities in different directions, \textit{i.e.} \textbf{it does not look the same in all directions}. Different crystal planes and directions generally have different properties.
-  
-  \subsubsection{Miller indices}
-  \[[abc] = \left[\frac{1}{p},\frac{1}{q},\frac{1}{r}\right]\]
-  Where $p,q,r$ are the intersections with the $x,y,z$ axis. Miller indices describe the crystal plane.
+  Crystals have different periodicities in different directions.
+  \textbf{Miller indices} $[abc] = \left[\frac{1}{p},\frac{1}{q},\frac{1}{r}\right]$, $p,q,r$: intersections with the $x,y,z$ axis.
 
   \subsection{Elements}
   \cgraphic{1}{img/elements.png}
@@ -135,68 +136,43 @@
   % \textbf{Bonds are very directional}, material is mechanically stiff (brittle). Generally habe a diamond-like crystal structure.
 
   \subsection{Band Gap}
-  \cgraphic{1}{img/bandgap.png}
-  In solids, we are concerned about the atoms' outermost (\textit{i.e.} valence) electrons because they determine the bonding and the electronic properties.
+  As atoms approach eachother, atomic energy states spread from sharp levels into bands, which are separated by \textbf{energy gaps} where no $e^-$ can exist.
+  \cgraphic{.85}{img/bandgap.png}
+  In solids, the atoms' outermost (\textit{i.e.} valence) $e^-$ determine bonding and electronic properties.
 
-  On the far right in the figure, atoms are well seperated and non-interacting. 
-  Their energy states are sharp (atomic-like). 
-  As they get closer, the outermost (valence) electrons begin to interact and their energy levels start to shift with respect to the isolated value. 
-  \textbf{The number of states is conserved}. 
-  This is a consequence of the \textbf{Pauli Exclusion Principle}. 
-  Bands can be seperated by \textbf{energy gaps} where no electron is permitted to exist.
+\begin{itemize}[noitemsep,nolistsep]
+  \item\textbf{Partially Filled/Empty Band}:\textit{conduction}. As atoms approach each other to form a solid, valence $e^-$ distributions overlap. Equilibrium distance ~ maximum density of electrons for isolated atoms. Lowering of potential barriers between atoms allows electrons to move freely.
 
-  \subsubsection{Partially Filled / Empty Band}
-  Are associated with electrical \textbf{conduction}. 
-  As atoms approach each other to form solid, valence electron distributions overlap. 
-  Equilibrium distance ~ maximum density of electrons for isolated atoms.  
-  Lowering of potential barriers between atoms allows electrons to move freely.
+  \item\textbf{Completely Full/Empty Band} \textit{insulation}. If full, $e^-$ are there but no net current. At equilibrium atomic separation, bands are seperated by a forbidden energy gap. At low T, valence band full, conduction band empty: \textit{i.e.} no current.
+\end{itemize}
+\subsection{Effective mass}
+Mass that a particle seems to have when reponding to forces. Generally in units of the rest mass of an $e^-$/hole.
+\ceqbox{\frac{1}{m^*_{n,p}}=\frac{1}{\hbar^2}\parto{k^2}E_{C,V}\quad [m_{e,h}^{-1}]}
+\subsection{Density of states (DOS)}
+$D(E)=g(E):\quad \frac{N_\text{available\_states}}{\text{Volume}\cdot\text{Energy}}$. $D(E)dE$ density of states in range $[E,E+dE]$, in $[m^{-3}]$.
+\ceqbox{D_{C,V}(E)=\frac{8\pi\sqrt{2}}{h^3}\left(m^*_{n,p}\right)^{3/2}\sqrt{\abs{E-E_{C,V}}}}
 
-  \subsubsection{Full Band}
-  \textbf{Isolation}, electrons are there but no net current. At equilibrium atomic separation, bands are seperated by a forbidden energy gap. At low T, valence band full, conduction band empty: \textit{i.e.} no current.
+\subsection{Fermi-Dirac function (FD) / MB approx.}
+\cgraphic{1}{img/fermidirac.png}
+Probability that an an allowed  state is occupied by an $e^-$ (by a hole: $1-f(E)$): 
+\ceqbox{f(E)=\frac{1}{1+e^{\frac{E-E_F}{kT}}}\quad \{E_F\in\R:f(E)=0.5\}}
+The Maxwell-Boltzmann approximation (MB) can be used if $E-E_F>3kT$ (approx. error $<5\%$):
+\ceqbox{f(E)\stackrel{MB}{\cong} e^{-\frac{E-E_F}{kT}}}
 
-  \subsection{Population of Electron States}
-  Need to know the probability of finding electrons at a given energy to understand how they are distributed aming the various states (\textit{i.e.} conduction and valence band). This is done by the \textbf{Fermi Dirac Statistics (FD)}. FD statistics enforce the Pauli Exclusion Principle and the monimaztion of energy.
+\subsection{$e^-$/hole density, effective DOS}\label{n0p0}
+$[n_0]=[p_0]=[N_{C,V}]=m^{-3}$
+\ceqbox{n_0=\int_{E_C}^{\infty}f(E)D_C(E)dE\stackrel{MB}{\cong} N_C e^{-\frac{E_C-E_F}{kT}}}
+\ceqbox{p_0=\int_{-\infty}^{E_V}(1-f(E))D_V(E)dE\stackrel{MB}{\cong} N_V e^{-\frac{E_F-E_V}{kT}}}
+\ceqbox{N_{C,V}=\frac{4\sqrt{2}\left(\pi m^*_{n,p}kT\right)^{3/2}}{h^3}}
+\subsection{Intrinsic carriers}
+\cgraphic{1}{img/intrinsiccarriers}
+Two types of carriers: $e^-$ and holes. Intrinsic carriers are the thermally generated $e^-$-hole pairs ($n_0=p_0=n_i$) in a pure(undoped) crystal, related to the smearing of the FD for increasing $T$. $\rightarrow$ two partially filled bands, both the C and V bands can now carry current.
 
-  \begin{itemize}
-    \item Probability of finding $e^-$ at energy $E$ is $F(E)$
-    \item Probability of finding a hole at energy $E$ is $1-F(E)$
-  \end{itemize}
+\textbf{Mass Action Law} from eqs. in Sec.\ref{n0p0} ($E_C-E_V=E_g$):
+\ceqbox{n_i^2 = n_0 p_0 \stackrel{MB}{\cong} N_C N_V e^{-\frac{E_C-E_V}{kT}}}
+\textbf{Dependence on temperature}: $N_C,N_V \propto T^{3/2}$ (negl.: $E_g$ also depends from $T$):
+\cgraphic{0.8}{img/intrinsiccarrierdensity}
 
-  \cgraphic{1}{img/fermidirac.png}
-  \[F(E) = \frac{1}{1+\exp\left(\frac{E-E_F}{kT}\right)}\]
-  \textbf{Fermi Level $E_F$}: Energy at which the prob. of finding an $e^-$/hole is 50\%
-
-  \subsubsection{Density of states}
-  \cgraphic{1}{img/densityostates.png}
-  \textbf{Density of States} $g(E)$: How many available states per volume at energy $E$.
-  
-  \subsection{Intrinsic carriers}
-  \cgraphic{1}{img/intrinsiccarriers}
-  Two types of carriers: electrons and holes.
-  
-  Each Si atom is surrounded by 8 $e^-$ at 0K, 4 come from the atom itself, 1 from each of its 4 nearest neighbours.
-  As $T$ increases, thermal energy eventually excites some $e^-$ out of their bond. 
-  Equivalently, the FD distribution broadens around $E_F$, increasing the prob. that conduction band states become occupied.
-  A empty state (a ``hole'') is left in the bonding (valence band) state. 
-  The valence band is then not full anymore, and it therefore becomes conductive too.
-  \textbf{Consequence}: We now have two partially filled bands. 
-  Both the conduction and valence bands can now carry current because neither is completely full, not empty.
-  
-
-  \subsubsection{Detailed balance}
-  In equilibrium, $n_0$ and $p_0$ are constant but the reaction still operates in both directions. This is called ``detailed balance''.
-  \ceqbox{n_0 \cdot p_0 = K = K_0 \exp\left(\frac{-E_a}{kT}\right)= n_i^2}
-  Free electron $n_0$ and hole $p_0$ density and activation energy $E_a$ for bond breaking.
-
-  \subsubsection{Intrinsic carrier density}
-  \cgraphic{0.8}{img/intrinsiccarrierdensity}
-  The intrinsic carrier concentration depends exponentially on temperature $T$
-  And on the energy gap of the material (Si: 1.12 eV, GaAs: 1.42 eV, @ 300K)
-  Different energy gaps thus have a huge impact on $n_i$
-  $n_i$ becomes large at high $T$ (limits high-$T$ operation of devices)
-
-  \subsubsection{Electric field}
-  Electrons move opposite to electric field, holes move parallel to E-field.
 
   % ---------------------------------------------------------------------------
   \section{Doping}
@@ -204,178 +180,158 @@
   Doping is the introduction of impurities with different atomic valence in the pure crystal. These impurities are called \textit{Extrinsic Carriers}.
 
 
-  \begin{tabular}[h]{l l}
-    $E_D$   & Donor energy level/state \\
-    $E_c$   & Conduction band edge\\
-    $E_v$   & Valence band edge\\
-    $E_F$   & Fermi energy\\
-    $E_{Fi}$   & Intrinsic Fermi energy\\
-    $E_g$   & Band gap width/energy\\
-    $m^*$   & Effective mass of electron(n)/hole(p) \\
-    $\epsilon_0$ & Vacuum permittivity $8.854\cdot 10^{-12}$F/m\\
-    $n_i$   & Intrinsic electron concentration \\
-    $p_i$   & Intrinsic hole concentration\\
-    {}      & $n_i=p_i$\\
-    $n_0$   & Thermal-equilibrium $e^-$ concentration\\
-    $p_0$   & Thermal-equilibrium hole concentration\\
-    $n_d$   & Concenctraiton of $e^-$ in donor state \\
-    $p_a$   & Concenctraiton of holes in acceptor state \\
-    $N_d$   & Concentration of donor atoms\\
-    $N_a$   & Concentration of acceptor atoms\\
-    $N_c$   & Effective density of states\\
-    $N_v$   & Effective density of states\\
-    $N_d^+$   & Conc. of pos. charged (ionized) donors \\
-    $N_a^-$   & Conc. of neg. charged (ionized) acceptors \\
-    % $$   &  \\
-  \end{tabular}
+%  \begin{tabular}[h]{l l}
+%    $E_D$   & Donor energy level/state \\
+%    $E_c$   & Conduction band edge\\
+%    $E_v$   & Valence band edge\\
+%    $E_F$   & Fermi energy\\
+%    $E_{Fi}$   & Intrinsic Fermi energy\\
+%    $E_g$   & Band gap width/energy\\
+%    $m^*$   & Effective mass of electron(n)/hole(p) \\
+%    $\epsilon_0$ & Vacuum permittivity $8.854\cdot 10^{-12}$F/m\\
+%    $n_i$   & Intrinsic electron concentration \\
+%    $p_i$   & Intrinsic hole concentration\\
+%    {}      & $n_i=p_i$\\
+%    $n_0$   & Thermal-equilibrium $e^-$ concentration\\
+%    $p_0$   & Thermal-equilibrium hole concentration\\
+%    $n_d$   & Concenctraiton of $e^-$ in donor state \\
+%    $p_a$   & Concenctraiton of holes in acceptor state \\
+%    $N_d$   & Concentration of donor atoms\\
+%    $N_a$   & Concentration of acceptor atoms\\
+%    $N_c$   & Effective density of states\\
+%    $N_v$   & Effective density of states\\
+%    $N_d^+$   & Conc. of pos. charged (ionized) donors \\
+%    $N_a^-$   & Conc. of neg. charged (ionized) acceptors \\
+%    % $$   &  \\
+%  \end{tabular}
 
   \subsection{Impurity doping}
   It is distinguished between negative and positive doping.
   
-  \subsubsection{N-Doping}
+  \textbf{N-Doping} $n_0>p_0$
   \cgraphic{0.7}{img/ndope}
-  Taking donors from PT col \rom{5} (P, As, Sb) that have 5 valence electrons. 4 make covalent bond, 5\ts{th} is ``not needed'' and looks like a hydrogen atom. It is easily inozed/excited to conduction band. Its energy state is close to CB ($E_c$).
+  Taking donors from PT col \rom{5} (P, As, Sb) that have 5 valence electrons. 4 make covalent bond, 5\ts{th} is ``not needed'' and looks like a hydrogen atom. It is easily inozed/excited to conduction band. Its energy state is close to CB ($E_C$).
   \attention{Overall, the solid is still charge neutral but with impurities}\attention
   
-  Donors introduce an energy state $E_D$ near the conduction band edge $E_c$. $e_-$ easily promoted to conduction band because $E_c$, $E_D$ are close compared to $E_c$, $E_v$ ($E_g$). Only $E_c-E_D$ is needed to free the electron. \textbf{Extra electrons are added without adding holes.}
+  Donors introduce an energy state $E_D$ near the conduction band edge $E_C$. $e^-$ easily promoted to conduction band because $E_C-E_D<E_C-E_V=E_g$ \textbf{Extra $e^-$ are added without adding holes.}
 
-  \subsubsection{P-Doping}
+  \textbf{P-Doping} $p_0>n_0$
   \cgraphic{0.7}{img/pdope}
   Same as n-doping but by adding extra holes. Acceptors from PT col \rom{3} (B, Al, Ga, In)
 
-  \subsubsection{Energy Band}
+  \textbf{Energy bands}
   \cgraphic{1}{img/dopeband}
-    \begin{tabular}[h]{p{0.45\linewidth} | p{0.45\linewidth}}
+    \begin{tabular}[h]{p{0.43\linewidth} | p{0.55\linewidth}}
     \textbf{n-type doping} & \textbf{p-type doping} \\
-    donor & acceptor \\
-    State $E_D$ below conduction band & State $E_A$ above valence band \\
+    Donor state $E_D<E_C$ & Acceptor state $E_A>E_V$ \\
 
   \end{tabular}
 
   \cgraphic{1}{img/bandenergies}
-  Image shows impurity levels in Silicon in eV. This amount of energy is required to move impurity to conductance/valence band.
-
-  Donors: treat as ``Hydrogen-Like'' atom inside solid. Its ionization energy $E_D$ is modified by the dielectric constant and effective mass $m^*$.
-  \[E_d\approx \frac{1}{\epsilon_r^2}\frac{m^*}{m_0}E_H\]
-  $E_{D,\text{Bohr}} = 27\text{meV}$ a very good approximation.
-
-  \subsubsection{Bohr radius}
-  The most probable distance between nucleus and electron in a Hydrogen atom in ground state. For semiconductor we need to modify this value for $\epsilon_0$ and $m^*$.
-  \[r'_{\text{Bohr}}=\frac{4\pi\epsilon_r\epsilon_0\hbar^2}{m^*m_0q^2} = \frac{\epsilon_r}{m^*}5.3\cdot10^{-9}=31\angstrom\]
-
-  This sphere corresponds to about 6735  Si atoms or 841 unit cells. Is thus very loosely bound to its ``parent'' impurity atom.
-
-  \subsection{Electro neutrality}
-  Sum of atoms making up the semiconductor are elctrically neutral: The semiconductor thus has zero net charge.
-  In general, both donor and acceptor impurities may be present.
-
-  \ceqbox{n_0 + N_a^- = p_0 + N_d^+}
-
-  \subsection{Density of States (DOS)}
-  \cgraphic{1}{img/dos}
-  Density of available quantum states times Fermi-Dirac distribution equals the density of electrons. $D(E_\text{kin})$ is the number of electronic states at energy $E_\text{kin}$ in a range $\delta e_\text{kin}$ per $cm^3$.
-  \[D(E_\text{kin}) = \frac{8}{h^3}\sqrt{2}\pi(m^*)^{2/3}(E_\text{kin})^{1/2}\]
-
-  \subsection{Population of Electron States}
-  Concentration of electrons and holes ($g(E)$ int Neamen p. 109) is sum of all density of states times Fermi-Dirac probability:
-  \[\int_{E=0}^\infty f(E) \cdot D(E_\text{kin})\Dx E_\text{kin}\]
-
-  \textbf{Learn by hard:}
-  \[f(E) = \frac{1}{1+\exp\left(\frac{E-E_F}{kT}\right)} \approx e^{\frac{E-E_F}{kT}} \quad\text{if} \quad E \gg E_F\]
-  \begin{align*}
-    n_0 &= \frac{4\sqrt{2}(\pi m^* kT)^{2/3}}{h^3}e^{-(E_c-E_F)/(kT)} \\
-        &= N_c \cdot e^{-(E_c-E_F)/(kT)}
-  \end{align*}
-
-  For $E \gg E_F$ the Maxwell-Boltzmann approximation holds.
-
-  \subsubsection{General case}
-  \cgraphic{1}{img/dosgeneralcase}
-  When the Fermi level $E_F$ is more than $3kT$ below $E_c$ (or above $E_v$), the full Fermi-Dirac (FD) integral $F_{1/2}(\eta)$ is well approximated by the Maxwell-Boltzmann (MB) approximation $e^\eta$.
-  When $E_F$ is colser or even above $E_c$ (below $E_v$), the material is said to be ``degenerate''.
-
-  \subsubsection{Concentration of electrons and holes}
-  Back to (MB).
-  \begin{align*}
-    n_0 &= N_c \cdot e^{-\frac{E_c-E_F}{kT}} & N_c &= \frac{4\sqrt{2}(\pi m^*_n kT)^{3/2}}{h^3} \\
-    p_0 &= N_v \cdot e^{-\frac{E_F-E_v}{kT}} & N_v &= \frac{4\sqrt{2}(\pi m^*_p kT)^{3/2}}{h^3} 
-  \end{align*}
-
-  We see that the intrinsic carrier concentration depends on the temperature and the energy gap of the semiconductor:
-  \[n_0 p_0 = N_v N_c \cdot e^{-\frac{E_c-E_v}{kT}} = n_i^2 = N_vN_c\cdot e^{-\frac{E_g}{kT}}\]
-
-  Remember:
-  \ceqbox{n_0p_0 = n_i^2}
-
-  \subsection{Fermi Level \& Doping}
+  Impurity levels in Silicon in eV: amount of energy is required to move impurity to conductance/valence band.
   
-  \subsection{Book Chapter 4 Summary}
+  \textbf{Degenerate n/p Semiconductor}: $E_F$ is over $E_C$/under $E_V$.
+\subsection{Intrinsic Fermi Level}
+$E_i\equiv E_F$ in an undoped(=intrinsic) semiconductor.
+\ceqbox{E_{i}=\frac{E_V+E_C}{2}+\frac{kT}{2}ln\left(\frac{N_V}{N_C}\right)}
 
-    \textbf{Materials at 300K} \\
-      \begin{tabular}[h]{l c c c}
-        Material & Si & Ge & GaAs \\
-        $n_i^2(cm^{-6})$  & $9.3\cdot 10^{19}$  & $5.76\cdot 10^{26}$ & $3.24\cdot 10^{12}$ \\
-        $N_c(cm^{-3})$    & $2.86\cdot 10^{19}$ & $1.04\cdot 10^{19}$ & $4.7\cdot 10^{17}$ \\
+\ceqbox{E_{i} - E_{\text{midgap}} = \frac{3}{4}kT\ln\left(\frac{m_p^*}{m_n^*}\right)}
 
-        $N_v(cm^{-3})$    & $1.04\cdot 10^{19}$ & $6.0\cdot 10^{18}$  & $7.0\cdot 10^{18}$ \\
-        $E_g (eV)$        & $1.12$ & $0.66$ & $1.42$ \\
-        $m_n^*/m_0$       & $1.08$ & $0.067$ & $0.55$\\
-        $m_p^*/m_0$       & $0.56$ & $0.48$ & $0.37$\\
-      \end{tabular}
+\ceqbox{n_i=N_{C,V}e^{-\frac{\abs{E_{C,V}-E_i}}{kT}}}
 
-    \textbf{Intrinsic Band Gap} \\
-      \begin{align*}
-        E_g &= -kT\ln\frac{n_i^2}{N_c N_v} &
-        n_i^2 &= N_v N_v e^{-\frac{E_g}{kT}} \\
-        n_0 &= N_ce^{\frac{-(E_c-E_F)}{kT}} &
-        p_0 &= N_ve^{\frac{-(E_F-E_v)}{kT}}
-      \end{align*}
+%\ceqbox{E_F-E_{i}=kT ln\left(\frac{\{n,p\}_0}{n_i}\right)}
 
-    \textbf{Effective Mass} \\
-      \begin{align*}
-        N_c &= 2\left(\frac{2\pi m_n^*kT}{h^2}\right)^{3/2} &
-        N_v &= 2\left(\frac{2\pi m_p^*kT}{h^2}\right)^{3/2} &
-      \end{align*}
+\ceqbox{\{n,p\}_0=n_i e^{\pm\frac{E_F-E_{i}}{kT}}}
 
-    \textbf{Intrinsic Carrier Concentration} \\
-      \begin{align*}
-        n_i^2 &= N_cN_ve^{\frac{-(E_c-E_v)}{kT}} = N_cN_ve^{\frac{-E_g}{kT}}
-      \end{align*}
+\subsection{Electroneutrality}
+Charge balance equation:
+\ceqbox{n_0 + N_a^- = p_0 + N_d^+}
+Assuming complete ionization of dopants and equilibrium, use for majority carriers:
+\ceqbox{\{n,p\}_0 = \frac{\abs{N_d-N_a}}{2}+\sqrt{\left(\frac{N_d-N_a}{2}\right)^2+n_i^2}}
+\begin{itemize}[nolistsep,noitemsep]
+	\item $N_d>N_a$: n-type compensated semiconductor;
+	\item $N_d<N_a$: p-type compensated semiconductor;
+	\item $N_a=N_d$: completely compensated semiconductor, with chars. of an intrinsic material.
+\end{itemize}
+\subsection{Amount of ionized donors/acceptors}
+\begin{enumerate}[nolistsep,noitemsep]
+	\item Compute $E_F$ assuming complete ionization, and using that the percentage of ionized dopants;
+	\item Compute the probability that the donors are ionized:
+	\begin{itemize}[nolistsep,noitemsep]
+		\item For n-type: Donor ionized $N_D^+\rightarrow$ hole with prob. $1-f(E_D)$;
+		\item For p-type: Acceptor ionized $N_A^-\rightarrow$ $e^-$ with prob. $f(E_A)$.
+	\end{itemize}
+	\item Complete ionization hypothesis justified if more than $95\%$ of dopants ionized.
+\end{enumerate}
 
-    \textbf{Intrinsic Fermi Level} \\
-      \begin{align*}
-        E_{Fi} - E_{\text{midgap}} &= \frac{3}{4}kT\ln\left(\frac{m_p^*}{m_n^*}\right) \\
-        E_{Fi} &= \frac{E_v+E_c}{2} + \frac{kT}{2}\ln\left(\frac{N_v}{N_c}\right)
-      \end{align*}
-
-    \textbf{Equilibrium distribution of el/holes} \\
-      \begin{align*}
-        n_0 &= n_i e^{\frac{E_F-E_{Fi}}{kT}} &
-        p_0 &= n_i e^{\frac{-(E_F-E_{Fi})}{kT}} &
-      \end{align*}
-
-    \textbf{The $n_0p_0$ product} \\
-      \ceqbox{n_0p_0 = n_i^2}
-
-    \textbf{Statistics of Donors and Acceptors} \\
-      \begin{align*}
-        n_d &= \frac{N_d}{1+\frac{1}{2}e^{\frac{E_d-E_F}{kT}}} &
-        p_d &= \frac{N_a}{1+\frac{1}{2}e^{\frac{E_F-E_a}{kT}}} \\
-      \end{align*}
-
-    \textbf{Thermal-Equilibrium El. Concentration} \\
-    $n_0$ for $N_d>N_a$ (n-type), $p_0$ for $N_a>N_d$ (p-type).
-      \begin{align*}
-        n_0 & = \frac{N_d-N_a}{2}+\sqrt{\left(\frac{N_d-N_a}{2}\right)^2+n_i^2} \\
-        p_0 & = \frac{N_a-N_d}{2}+\sqrt{\left(\frac{N_a-N_d}{2}\right)^2+n_i^2} &
-      \end{align*}
- 
-    \textbf{Position of Fermi Energy Level} \\
-    Use the $n_0$ formula for n-type, the $p_0$ formula for p-type.
-      \begin{align*}
-        E_F-E_{Fi} &= kT\ln\left(\frac{n_0}{n_i}\right) &
-        E_{Fi}-E_{F} &= kT\ln\left(\frac{p_0}{n_i}\right) &
-      \end{align*}
+%  \subsection{Fermi Level \& Doping}
+%  
+%  \subsection{Book Chapter 4 Summary}
+%
+%    \textbf{Materials at 300K} \\
+%      \begin{tabular}[h]{l c c c}
+%        Material & Si & Ge & GaAs \\
+%        $n_i^2(cm^{-6})$  & $9.3\cdot 10^{19}$  & $5.76\cdot 10^{26}$ & $3.24\cdot 10^{12}$ \\
+%        $N_c(cm^{-3})$    & $2.86\cdot 10^{19}$ & $1.04\cdot 10^{19}$ & $4.7\cdot 10^{17}$ \\
+%
+%        $N_v(cm^{-3})$    & $1.04\cdot 10^{19}$ & $6.0\cdot 10^{18}$  & $7.0\cdot 10^{18}$ \\
+%        $E_g (eV)$        & $1.12$ & $0.66$ & $1.42$ \\
+%        $m_n^*/m_0$       & $1.08$ & $0.067$ & $0.55$\\
+%        $m_p^*/m_0$       & $0.56$ & $0.48$ & $0.37$\\
+%      \end{tabular}
+%
+%    \textbf{Intrinsic Band Gap} \\
+%      \begin{align*}
+%        E_g &= -kT\ln\frac{n_i^2}{N_c N_v} &
+%        n_i^2 &= N_v N_v e^{-\frac{E_g}{kT}} \\
+%        n_0 &= N_ce^{\frac{-(E_c-E_F)}{kT}} &
+%        p_0 &= N_ve^{\frac{-(E_F-E_v)}{kT}}
+%      \end{align*}
+%
+%    \textbf{Effective Mass} \\
+%      \begin{align*}
+%        N_c &= 2\left(\frac{2\pi m_n^*kT}{h^2}\right)^{3/2} &
+%        N_v &= 2\left(\frac{2\pi m_p^*kT}{h^2}\right)^{3/2} &
+%      \end{align*}
+%
+%    \textbf{Intrinsic Carrier Concentration} \\
+%      \begin{align*}
+%        n_i^2 &= N_cN_ve^{\frac{-(E_c-E_v)}{kT}} = N_cN_ve^{\frac{-E_g}{kT}}
+%      \end{align*}
+%
+%    \textbf{Intrinsic Fermi Level} \\
+%      \begin{align*}
+%        E_{Fi} &= \frac{E_v+E_c}{2} + \frac{kT}{2}\ln\left(\frac{N_v}{N_c}\right)
+%      \end{align*}
+%
+%    \textbf{Equilibrium distribution of el/holes} \\
+%      \begin{align*}
+%        n_0 &= n_i e^{\frac{E_F-E_{Fi}}{kT}} &
+%        p_0 &= n_i e^{\frac{-(E_F-E_{Fi})}{kT}} &
+%      \end{align*}
+%
+%    \textbf{The $n_0p_0$ product} \\
+%      \ceqbox{n_0p_0 = n_i^2}
+%
+%    \textbf{Statistics of Donors and Acceptors} \\
+%      \begin{align*}
+%        n_d &= \frac{N_d}{1+\frac{1}{2}e^{\frac{E_d-E_F}{kT}}} &
+%        p_d &= \frac{N_a}{1+\frac{1}{2}e^{\frac{E_F-E_a}{kT}}} \\
+%      \end{align*}
+%
+%    \textbf{Thermal-Equilibrium El. Concentration} \\
+%    $n_0$ for $N_d>N_a$ (n-type), $p_0$ for $N_a>N_d$ (p-type).
+%      \begin{align*}
+%        n_0 & = \frac{N_d-N_a}{2}+\sqrt{\left(\frac{N_d-N_a}{2}\right)^2+n_i^2} \\
+%        p_0 & = \frac{N_a-N_d}{2}+\sqrt{\left(\frac{N_a-N_d}{2}\right)^2+n_i^2} &
+%      \end{align*}
+% 
+%    \textbf{Position of Fermi Energy Level} \\
+%    Use the $n_0$ formula for n-type, the $p_0$ formula for p-type.
+%      \begin{align*}
+%        E_F-E_{Fi} &= kT\ln\left(\frac{n_0}{n_i}\right) &
+%        E_{Fi}-E_{F} &= kT\ln\left(\frac{p_0}{n_i}\right) &
+%      \end{align*}
 
   % ---------------------------------------------------------------------------
   \section{Excess Carriers}
@@ -383,121 +339,156 @@
   % \subsection{Variables}
   \cgraphic{0.9}{img/dopingvars.png}
 
-    \begin{tabular}[h]{l l}
-      $G_{th}$   & Thermal generation rate \\
-      $R_{th}$   & Thermal recombination rate \\
-      $G_{L}$    & Photonic generation rate \\
-      $\tau_p, \tau_n$   & Minority carrier lifetime \\
-      $\Delta_p, \Delta_n$   & Excess carrier concentration to equi. \\
-      $N_t$    & Density of recombination centers \\
-      $\sigma$    & Recomb. center cross section \\
-      {}    & \textbf{or} conductivity \\
-      $v_{th}$    & Carrier mobility in thermal equilibrium \\
-      $R_a,R_b$    & El. indirect capture and emission rate \\
-      $R_c,R_d$    & Hole indirect capture and emission rate \\
-      $e_n,e_p$    & El./Hole indirect emission probability \\
-      $U$    & Net recombination rate \\
-      $J_{\text{diff}}$ & Diffusion current dens. \\
-      $D$ & Diffusion constant \\
-      $q$ & electron charge \\
-      $J_n$ & Electron diffusion current dens.\\
-      $v_{dr,n/p}$ & Electron/hole drift velocity \\
-      $J_{dr,n/p}$ & Electron/hole drift current dens.\\
-      $\mu_{n/p}$ & Electron/hole mobility \\
-      $J_{n/p}$ & Electron/hole total current dens. \\
-    \end{tabular}
+    \begin{itemize}[nolistsep, noitemsep]
+    \item  $G_{th}$: Thermal generation rate;
+    \item  $G_{L}$: Photonic generation rate;
+    \item  $R_{th}$: Thermal recombination rate;
+    \item  $\tau_{p,n}$: Minority carrier lifetime;
+    \item  $\Delta {p,n}$: Excess carrier concentration to equil.;
+    \item  $N_t$: Density of recombination centers;
+    \item  $\sigma$: Recomb. center cross section \textbf{or} conductivity;
+    \item  $v_{th}$: Carrier mobility in thermal equilibrium;
+    \item  $R_a,R_b$: $e^-$ indirect capture and emission rate;
+    \item  $R_c,R_d$: Hole indirect capture and emission rate;
+    \item  $e_{p,n}$: $e^-$/Hole indirect emission probability;
+    \item  $U$: Net recombination rate;
+    \item  $J_{\text{diff}}$: Diffusion current dens.;
+    \item  $D$: Diffusion constant;
+    \item  $q$: $e^-$ charge;
+    \item  $J_n$: $e^-$ diffusion current dens.;
+    \item  $v_{dr,n/p}$: $e^-$/hole drift velocity;
+    \item  $J_{dr,n/p}$: $e^-$/hole drift current dens.;
+    \item  $\mu_{n/p}$: $e^-$/hole mobility;
+    \item  $J_{n/p}$: $e^-$/hole total current dens.
+    \end{itemize}
 
-  \subsection{Direct Generation/Recombination}
-    \cgraphic{0.8}{img/genrecomb.png}
-    Thermal (spontaneous) and external generation (e.g. light) accross the energy gap.
+\subsection{Definitions}
+\begin{itemize}[nolistsep, noitemsep]
+	\item G/R occur to restore the semiconductor's equilibrium state;
+	\item G: $e^-$-hole pairs created, occurs when there's a deficit of carriers;
+	\item R:$e^-$-hole pairs destroyed, occurs when there's an excess of carriers.
+\end{itemize}
 
-    In steady state, at a given T: Electrons are continually generated due to thermal energy.
-    Some electrons recombine with holes, so that on average $n_0$ and $p_0$ are constant. 
-    Rate is proportional to $n_0 \cdot p_0$. 
-    \[G_{th} = R_{th} = \beta(n_0 \cdot p_0) = \beta n_i^2\]
+\textbf{Non-equilibrium $e^-$,hole concentration}:
+\ceqbox{\{n,p\}=\{n,p\}_0+\Delta\{n,p\}}
 
-    This is because we always need 1 electron and 1 hole to "meet" for each recombination event.
-    \begin{align*}
-      R &= \beta n p \quad G = G_L + G_{th} \quad \Delta n = \Delta p\\
-      R &= \beta\cdot n_n p_n = \beta(n_{n0}+\Delta n)(p_{n0} + \Delta p)  \\
-      \abl{t}p_n &= G-R
-    \end{align*}
+\textbf{Each G/R event requires a pair}:
+\ceqbox{\Delta n=\Delta p}
 
-    Mass action law ($n_0p_0=n_i^2$) states for n-type doping that:
-    \[p_{n0} \ll n_{n0}\]
+\begin{itemize}[nolistsep, noitemsep]
+	\item Equilibrium $\rightarrow \Delta n=\Delta p=0$;
+	\item Steady-state $\rightarrow \Delta n=\Delta p=cst$;
+	\item Deficit/Excess of carriers $\Delta n=\Delta p\lesseqgtr0$.
+\end{itemize}
 
-    Low level injection is when
-    \[\Delta p \ll n_{n0}\]
+\subsection{Thermal equilibrium vs. Steady-state}
+\textbf{Thermal equilibrium:}
+\begin{itemize}[noitemsep,nolistsep]
+	\item No external forces/fields/light/voltage/$\grad T$;
+	\item No change over time;
+	\item Flat Fermi level;
+	\item No net current ($J_{tot}=0$);
+	\item $n_i^2=n_0p_0$.
+\end{itemize}
+\textbf{Stedy-state (SS):}
+\begin{itemize}[nolistsep,noitemsep]
+	\item No change of external forces over time;
+	\item $np\neq n_i^2$;
+	\item $\rightarrow \Delta_n=\Delta_p=cst$.
+\end{itemize}
+Systems always try to go to a SS, if external influences are removed, they'll try to go to equilibrium.
+\subsection{Direct Generation/Recombination}
+\cgraphic{0.8}{img/genrecomb.png}
+Thermal (spontaneous) and external generation (e.g. light) accross the energy gap.
 
-    Then the net recombination rate can be written as:
-    \[U = \beta(n_{n0}+p_{n0}+\Delta p)\Delta p \approx \beta n_{n0}\Delta p = \frac{\Delta p}{\tau_p}\]
+\textbf{In equilibrium}: $e^-$ continually generated due to thermal energy. Some electrons recombine with holes, so that on average $n_0$ and $p_0$ are constant. 
+\ceqbox{G = R = \beta(n_0p_0) = \beta n_i^2}
 
-    The minority carrier lifetime describes how fast the excess carrier concentration decays towards equil. when excitation ends. 
-    Determined by majority carrier concentration.
-    \includegraphics[width=0.7\columnwidth,keepaspectratio]{img/lightonoff.png}\eqbox{\tau_p = \frac{1}{\beta n_{n0}}}
+\textbf{Out of equilibrium}:
 
-    Light on:
-    \begin{align*}
-      G_L &= U = \frac{p_n-p_{n0}}{\tau_p} & p_n(t \leq 0) &= p_{n0} + \tau_pG_L
-    \end{align*}
+\textit{Recombination rate}:
+\ceqbox{R = \beta(np)=\beta(n_0+\Delta n)(p_0+\Delta p)}
+\textit{Thermal and Total generation rates}:
+\ceqbox{G_{th}=R_{th}=\beta n_0 p_0 \quad G=G_L+G_{th}}
+\textit{Net recombination rate}:
+\ceqbox{U=R-G_{th}}
 
-    Light off:
-    \begin{align*}
-      \Abl{p_n}{t} &= G_{th} - R = -U = -\frac{p_n-p_{n0}}{\tau_p} \\
-      p_n(t) &= p_{n0} + \tau_p G_L \exp\left(-\frac{t}{\tau_p}\right)
-    \end{align*}
+\textbf{Mass action law for n and p doping}:
+\ceqbox{p_{n0} \ll n_{n0} \quad p_{p0} \gg n_{p0}}
+\textbf{Low level injection for n and p doping}:
+\ceqbox{\Delta p \ll n_{n0} \quad p_{p0} \gg \Delta n}
+(Doping type doesn't change with perturbation)
 
-    Generally:
-    \eqbox{\Delta n = \tau_{n_0}R_n}
+Last two inequs. are used to approximate the \textit{$e^-$ in p-type/Hole in n-type}:
 
-  \subsection{Indirect Generation/Recombination}
-    \cgraphic{0.7}{img/trap.png}
-    Energy trap near midgap.
-    \[ U \approx  \frac{v_{th}\sigma_0N_t\cdot\Delta p}{1 + \frac{2n_i}{n_{n0}}\cosh\frac{E_t - E_i}{kT}} \approx \frac{\Delta p}{\tau_p} \approx \frac{p_n - p_{n0}}{\tau_p}\]
-    Where $N_tv_{th}\sigma$ are the recombination events taking place per unit time, $v_{th}\sigma$ a cylindrical colume in material per unit time.
-    \[\frac{1}{2}m_nv_{th}^2=\frac{3}{2}kT \quad v_{th}\approx 10^7 cm\cdot s^{-1}\]
-    Electron capture ($R_a$) and emission ($R_b$) rate must be equal in therm. equi.
-    \[R_a = nN_t(1-f)\cdot v_{th}\sigma_n \quad R_b = e_nN_tf\]
-    The emission probability increases exponentially as $E_t$ gets closer to conduction band edge:
-    \[e_n = \frac{v_{th}\sigma_nn(1-f)}{f}=v_{th}\sigma_nn_ie^{(E_t-E_i)/kT}\]
-    For holes:
-    \[R_c = pN_tf\cdot v_{th}\sigma_p \quad R_d = e_pN_t(1-f)\]
-    \[e_p = v_{th}\sigma_p n_i e^{(E_i-E_t)/kT}\]
-    These lead to the equation for $U=\dots$.
+-\textbf{Minority Carrier Recombination Rates}:
+\ceqbox{U_n=\Delta n_p/\tau_n \quad U_p=\Delta p_n/\tau_p}
 
-  \subsection{Diffusion}
-    Result of concentration gradients.
-    Equal probability of moving in any direction.
-    Fick's first law of diffusion:
-    \[J_{\text{diff}} = -D\Delta N = -D \left( \Pabl{N}{x}\vec{x_u} + \Pabl{N}{y}\vec{y_u} \dots \right)\]
+-\textbf{Direct recombination rate}
+\ceqbox{U_{dir}=\beta p_{p0}\Delta n \quad U_{dir}=\beta n_{n0}\Delta p}
 
-    In thermal equi. and uniform distribution, free charge carriers are in constant motion. 
-    Net current is thus zero.
-    Statistical mechanics show that particles at temp. $T$ have avg. thermal energy of $3kT/2$
-    For a particle of mass $m$ this corresponds to an avg. thermal velocity
-    \[\frac{1}{2}mv_{th}^2=\frac{3}{2}kT\]
-    In a crystal we must use the \textbf{effective mass}
-    The electron diffusion current:
-    \[ J_{\text{diff},n} = -qF = qD_n\Abl{n}{x}\]
+-\textbf{Minority carrier lifetime}:
+\ceqbox{\tau_n = \left(\beta p_{p0}\right)^{-1} \quad \tau_p = \left(\beta n_{n0}\right)^{-1}}
 
-  \subsection{Drift}
-    Result of an electric field as driving force.
-    Zero field: Electrons move thermally (randomly) in all directions (no net flow)
-    Non-zero field: There is a net drift of electrons, opposite to the E-field
-    We can then define a drift velocity of electrons $v_{dr,n}$
-    Electrons do not accelerate indefinitely due to collisions
-    \begin{align*}
-      J_{dr,n} &= -qnv_{dr,n} & v_{dr,n} &= -\mu_nE \\
-      J_{dr,p} &= qpv_{dr,h} & v_{dr,h} &= \mu_pE \\
-      J_{dr,tot} &= \sigma E & \sigma &= q(n\mu_n + p\mu_p)
-    \end{align*}
-  
-  \subsection{Total current}
-    Total current = drift + diffusion current = electron + hole current.
-    \begin{align*}
-      &\text{Electrons:} & J_n &= nq\mu\vec{E}+qD_n\Abl{n}{x} \\
-      &\text{Holes:} & J_p &= pq\mu\vec{E}-qD_p\Abl{p}{x} \\
-    \end{align*}
+\subsection{Light on an n-type semiconctor}
+\textbf{Light on($t<0$), $U = G_L$}:
+\ceqbox{U = \frac{p_n-p_{n0}}{\tau_p} \quad p_n(t < 0) = p_{n0} + \tau_pG_L}
+      
+\textbf{Light off($t\geq 0$) $G_L=0$}:
+$$\Abl{p_n}{t} = G_{th} - R = -U = -\frac{p_n-p_{n0}}{\tau_p}\Rightarrow$$
+\ceqbox{p_n(t) = p_{n0} + \tau_p G_L \exp\left(-\frac{t}{\tau_p}\right)}
+
+\subsection{Indirect Generation/Recombination}
+\cgraphic{0.7}{img/trap.png}
+Energy trap in bandgap:
+\ceqbox{U \approx  \frac{v_{th}\sigma_0N_t\cdot\Delta p}{1 + \frac{2n_i}{n_{n0}}\cosh\frac{E_t - E_i}{kT}} = \frac{\Delta p}{\tau_p} = \frac{p_n - p_{n0}}{\tau_p}}
+
+Where $N_tv_{th}\sigma$ are the recombination events taking place per unit time, $v_{th}\sigma$ a cylindrical colume in material per unit time.
+\[\frac{1}{2}m_nv_{th}^2=\frac{3}{2}kT \quad v_{th}\approx 10^7 cm\cdot s^{-1}\]
+Electron capture ($R_a$) and emission ($R_b$) rate must be equal in therm. equi.
+\[R_a = nN_t(1-f(E_t))\cdot v_{th}\sigma_n \quad R_b = e_nN_tf(E_t)\]
+The emission probability increases exponentially as $E_t$ gets closer to conduction band edge:
+\[e_n = \frac{v_{th}\sigma_nn(1-f(E_t))}{f(E_t)}=v_{th}\sigma_nn_ie^{(E_t-E_i)/kT}\]
+For holes:
+\[R_c = pN_tf\cdot v_{th}\sigma_p \quad R_d = e_pN_t(1-f)\]
+\[e_p = v_{th}\sigma_p n_i e^{(E_i-E_t)/kT}\]
+These lead to the equation for $U=R_a-R_b=R_c-R_d$ ($\sigma_p=\sigma_n=\sigma_0$).
+
+\subsection{Direct and Indirect recombination}
+\begin{itemize}[nolistsep,noitemsep]
+	\item Occur in parallel, depends on which is faster/ has smaller $\tau$;
+	\item $U>0$ for execessive minority carriers $rightarrow$ Recombination;
+	\item $U>0$ for deficient minority carriers $rightarrow$ Generation.
+\end{itemize}
+\section{Carrier transport mechanisms}
+\subsection{Diffusion}
+Result of concentration gradients. Equal probability of moving in any direction $\rightarrow$ flow from high to low concentrations. Fick's first law of diffusion:
+\ceqbox{j_{\text{diff}} = -D\Delta N = -D \left( \Pabl{N}{x}\vec{x_u} + \Pabl{N}{y}\vec{y_u} \dots \right)}
+In thermal equi. and uniform distribution, free charge carriers are in constant motion; net current is thus zero. Statistical mechanics show that particles at temp. $T$ have avg. thermal energy of $3kT/2$. For a particle of mass $m$ this corresponds to an avg. thermal velocity of:
+$\frac{1}{2}m*v_{th}^2=\frac{3}{2}kT$
+
+\textbf{Carrier diffusion currents}:
+\ceqbox{j_{\text{diff}\{n,p\}} = -qF = \pm qD_{n,p}\Abl{n}{x}[A/m^2]}
+
+\textbf{Diffusivity=f(Mobility)}:
+\ceqbox{D_x\stackrel{MB}{\cong}\frac{kT}{q}\mu_x[m^2/s]}
+
+
+\subsection{Drift}
+Result of an electric field as driving force. Zero field: Electrons move thermally (randomly) in all directions (no net flow) Non-zero field: There is a net drift of electrons, opposite to the E-field. We can then define a drift velocity of electrons $v_{dr,n}$. Electrons do not accelerate indefinitely due to collisions.
+
+\textbf{Drift current of carriers in low E-Fields}:
+\ceqbox{j_{dr,\{n,p\}} = \mp qnv_{dr,\{n,p\}}\quad v_{dr,\{n,p\}} = \mp \mu_{\{n,p\}}E}
+
+\textbf{Total drift current}:
+\ceqbox{j_{dr,tot}= \sigma E\quad \sigma = q(n\mu_n + p\mu_p)}
+
+\subsection{Total current}
+\textbf{Total current = drift + diffusion current = electron + hole current}
+
+\textbf{Electrons:} \ceqbox{j_n = nq\mu\vec{E}+qD_n\Abl{n}{x}}
+\textbf{Holes:} \ceqbox{j_p = pq\mu\vec{E}-qD_p\Abl{p}{x}}
+\textbf{Total:} \ceqbox{j = j_n + j_p}
 
   % ---------------------------------------------------------------------------
   \section{Excess Carriers}
@@ -513,72 +504,80 @@
     \end{tabular}
 
   \subsection{Continuity equation}
-    \textbf{Objective:} Accounting for carrier densities when drift, diffusion and G/R take place.
-    \cgraphic{0.5}{img/continuity.png}
+\textbf{Objective:} Accounting for carrier densities when drift, diffusion and G/R take place. 
+\cgraphic{0.5}{img/continuity.png}
+
+The conservation of carriers results in:
+
+\textbf{Change in electrons:}
+\ceqbox{\Pabl{n}{t} = \frac{1}{q}\Pabl{j_n}{x}+(G_m-R_n)}
+
+\textbf{Change in holes:}
+\ceqbox{\Pabl{p}{t} = -\frac{1}{q}\Pabl{j_p}{x}+(G_p-R_p)}
+
+Inserting the total current equations:
+
+\textbf{Electrons in p-type material}:
+\begin{align*}
+\Pabl{n_p}{t} =& n_p\mu_n\Pabl{{E}}{x}+\mu_n{E}\Pabl{n_p}{x} + D_n\Pablq{n_p}{x} \\ &+ G_n - \frac{n_p-n_{p0}}{\tau_n}
+\end{align*}
+
+\textbf{Holes in n-type material}:
+\begin{align*}
+\Pabl{p_n}{t} =& p_n\mu_p\Pabl{{E}}{x}+\mu_p{E}\Pabl{p_n}{x} + D_p\Pablq{p_n}{x} \\ &+ G_p - \frac{p_n-p_{n0}}{\tau_p}
+\end{align*}
+
+\textbf{Steady state: $\pabl{n_p}{t}=\pabl{p_n}{t}=0$}
+\ceqbox{0=D_n\Pablq{n_p}{x}+G_n-\frac{n_p-n_{p0}}{\tau_n}}
+\ceqbox{0=D_p\Pablq{p_n}{x}+G_p-\frac{p_n-p_{n0}}{\tau_p}}
+
+\textbf{SS, no E-Field and no ext. carrier G}:
+\ceqbox{0=D_n\Pablq{n_p}{x}-\frac{n_p-n_{p0}}{\tau_n}}
+\ceqbox{0=D_p\Pablq{p_n}{x}-\frac{p_n-p_{n0}}{\tau_p}}
+
+\begin{center}
+\attention \textbf{Steady State $\neq$ Equilbrium} \attention
+\end{center}
+
+\subsection{Steady State Surface Generation}
+n-type semiconductor with all generation at $x=0$.
+\ceqbox{L_p = \sqrt{D_p\tau_p}}
+
+\textbf{General case}
+\cgraphicd{0.49}{img/finitesample1.png}{img/finitesample2.png}
+\ceqbox{p_n(x) = p_{n0} + (p_n(0)-p_{n0}) \frac{\sinh\left(\frac{W-x}{L_p}\right)}{\sinh\left(\frac{W}{L_p}\right)}}
+
+\textbf{Semi-infinite sample: $L_P \ll W$}
+\cgraphicd{0.49}{img/semiinf1.png}{img/semiinf2.png}
+\ceqbox{p(x) = p_{n0} + (p_n(0)-p_{n0}) \exp\left(-\frac{x}{L_p}\right)}
     
-    \begin{align*}
-      &\text{Change in e} & \Pabl{n}{t} &= \frac{1}{q}\Pabl{J_n}{x}+(G_m-R_n) \\
-      &\text{Change in hole} & \Pabl{p}{t} &= -\frac{1}{q}\Pabl{J_p}{x}+(G_p-R_p)
-    \end{align*}
+\textbf{Finite sample:  $L_P \gg W$}
+\ceqbox{p_n(x) = (p_n(0)-P_{n0})\frac{W-x}{W}}
 
-    Written for \textbf{electrons} in p-type material
-    \begin{align*}
-      \Pabl{n_p}{t} &= n_p\mu_n\Pabl{\vec{E}}{x}+\mu_n\vec{E}\Pabl{n_p}{x} + D_n\Pablq{n_p}{x} \\ &+ G_n - \frac{n_p-n_{p0}}{\tau_n}
-    \end{align*}
+\subsection{Equilibrium: constant fermi level}
+\cgraphic{0.5}{img/pnfermilevel.png}
+In equilibrium, the Fermi level mus be constant to balance transfer rates so that no net current flows.
+\ceqbox{E_{F1} = E_{F2}}
 
-    Written for \textbf{holes} in n-type material
-    \begin{align*}
-      \Pabl{p_n}{t} &= p_n\mu_p\Pabl{\vec{E}}{x}+\mu_p\vec{E}\Pabl{p_n}{x} + D_p\Pablq{p_n}{x} \\ &+ G_p - \frac{p_n-p_{n0}}{\tau_p}
-    \end{align*}
+\subsection{Doping Modulation}
+Near the transition region, the distance between the Fermi level and conducition/valence band edge changes. Far away from the junction, the material does not ``know'' there is a junction.
 
-    \subsubsection{Steady state}
-    For steady state considerations:
+$E_C$ defines the potential energy of $e^-$, and $E_V$ corresponds to the potential energy of holes (with hole kinetic energy increasing downward). By definition, force is the negative gradient of potential energy:
 
-    \ceqbox{0=D_n\Pablq{n_p}{x}+G_n-\frac{n_p-n_{p0}}{\tau_n}}
-    
-    \subsubsection{Einstein relation}
-    \begin{center}
-      \eqbox{D_p = \frac{kT}{q}\mu_p} \eqbox{D_n = \frac{kT}{q}\mu_n}
-    \end{center}
+\ceqbox{F_{n,p}=-\Abl{E_{pot,\{n,p\}}}{x}=-\Abl{\left(\pm E_{C,V}\right)}{x} = \mp q\tilde{E}}
 
-    \subsubsection{Semi-infinite sample}
-    \cgraphicd{0.49}{img/semiinf1.png}{img/semiinf2.png}
-    \begin{align*}
-      p(x) &= p_{n0} + (p_n(0)-p_{n0}) \exp\left(-\frac{x}{L_p}\right) \\
-      L_p &= \sqrt{D_p\tau_p}
-    \end{align*}
+\subsection{Quasi Fermi Level}
+Under Bias (e.g illumination), the equilibrium Fermi Level splits into two distinct \textit{Quasi Fermi Levels} caused by a slow recombination rate.
+\cgraphic{0.8}{img/quasi_fermi.png}
 
-    \subsubsection{Finite sample}
-    \cgraphicd{0.49}{img/finitesample1.png}{img/finitesample2.png}
-    \begin{align*}
-      p_n(x) &= p_{n0} + (p_n(0)-p_{n0}) \frac{\sinh\left(\frac{W-x}{L_p}\right)}{\sinh\left(\frac{W}{L_p}\right)}
-    \end{align*}
-
-    If $W \ll L_p$ then recombination is weak, few holes recombine in the time required for them to cross the region $W$.
-    The excess carrier profile bebomes linear:
-    \[p_n(x) = (p_n(0)-P_{n0})\frac{W-x}{W}\]
-
-    % \begin{align*}
-
-    % \end{align*}
-    % \begin{align*}
-
-    % \end{align*}
-
-
-  \subsection{Equilibrium: constant fermi level}
-  \cgraphic{0.5}{img/pnfermilevel.png}
-  In equilibrium, the Fermi level mus be constant to balance transfer rates so that no net current flows.
-  \ceqbox{E_{F1} = E_{F2}}
-
-
-  \subsection{Doping: Band bending}
-  Near the transition region, the distance between the Fermi level and conducition/valence band edge changes.
-  Far away from the junction, the material does not ``know'' there is a junction.
-
-
+\begin{align*}
+n(x) &= N_C e^{(E_C(x)-E_{Fn})/kT}\\
+p(x) &= N_V e^{(E_{Fp}-E_V(x))/kT}\\
+(np)(x) &= n_i^2 e^{(E_{Fp}-E_{Fn})/kT}\\
+&= N_CN_V e^{(E_{Fp}-E_{Fn})/kT} \\
+&= n_i^2 e^{qV_F/kT}
+\end{align*}
 
 \end{multicols*}
-
 \setcounter{secnumdepth}{2}
 \end{document}
